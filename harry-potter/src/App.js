@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css';//link the file of style App.css
+import houses from "./Houses"; //Link file of data
+import House from "./House"; //Link file of House component
+import Character from "./Character"; //Link file of Character
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+//React
+//component
+//Props => attr or props properities 'props'
+// we use 'Props' often to pass the data to components
+
+
+let allHouses = houses.map(house => <House info={house} />);
+
+const App = () => (
+  <div>
+    <h1>Houses</h1>
+    {houses.map((house, index) => (
+      <House info={house} key={index} />
+    ))}
+    <h1>Characters</h1>
+    {houses.map((house, index) => (
+      <Character info={house} key={index} />
+    ))}
+    
+  </div>
+);
+
+
 
 export default App;
